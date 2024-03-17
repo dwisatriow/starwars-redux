@@ -5,7 +5,7 @@ const initialState = {
   loading: false,
 };
 
-const ENDPOINT = 'https://star-wars-characters.glitch.me/api/search/';
+const ENDPOINT = 'https://swapi.dev/api/people/?search=';
 
 export const fetchCharactersFromAPI = createAsyncThunk(
   'characters/fetchCharacters',
@@ -26,7 +26,7 @@ export const charactersSlice = createSlice({
     },
   },
   extraReducers: {
-    [fetchCharactersFromAPI.pending]: (state, action) => {
+    [fetchCharactersFromAPI.pending]: (state) => {
       state.loading = true;
     },
     [fetchCharactersFromAPI.fulfilled]: (state, action) => {
